@@ -3,63 +3,138 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="eu.png" type="image/x-icon" />
-    <title>Aula de DEV WEB</title>
-    <link rel="shortcut icon" type="imagex/png" href="./img/aba.jpeg" />
+    <title>Doces JAE</title>
+    <link rel="shortcut icon" href="./img/aba.jpeg" type="image/x-icon" />
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./style.css" />
+    <script>
+      function confirmarCompra() {
+        const diasSemana = [
+          "domingo",
+          "segunda-feira",
+          "terça-feira",
+          "quarta-feira",
+          "quinta-feira",
+          "sexta-feira",
+          "sábado",
+        ];
+        const meses = [
+          "janeiro",
+          "fevereiro",
+          "março",
+          "abril",
+          "maio",
+          "junho",
+          "julho",
+          "agosto",
+          "setembro",
+          "outubro",
+          "novembro",
+          "dezembro",
+        ];
+
+        const hoje = new Date();
+        const diaSemana = diasSemana[hoje.getDay()];
+        const dia = hoje.getDate();
+        const mes = meses[hoje.getMonth()];
+        const ano = hoje.getFullYear();
+
+        alert(
+          `sua compra foi realizada no dia ${diaSemana}, ${dia} de ${mes} de ${ano}`
+        );
+      }
+    </script>
   </head>
   <body>
     <header>
       <div class="logo">
-        <img src="./img/logo.png" alt="Logo Doces JAE" />
+        <img src="./img/logo.png" alt="Logo da Doces JAE" />
       </div>
       <nav>
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="#">Produtos</a></li>
-          <li><a href="#">Contato</a></li>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#produtos">Produtos</a></li>
+          <li><a href="#contato">Contato</a></li>
         </ul>
       </nav>
     </header>
 
-    <section class="produtos">
-      <h2>Nossos Produtos</h2>
-      <div class="grid-produtos">
-        <div class="produto">
-          <img src="./img/brigadeiro.jpg" alt="Brigadeiro Gourmet" />
-          <h3>Brigadeiro Gourmet</h3>
-          <p>Delicioso brigadeiro feito com chocolate belga.</p>
-          <span class="preco">R$ 3,50</span>
-        </div>
+    <main>
+      <section id="produtos" class="produtos">
+        <h2>Nossos Produtos</h2>
+        <div class="grid-produtos">
+          <div class="produto">
+            <img
+              src="./img/brigadeiro.jpg"
+              alt="Brigadeiro Gourmet com chocolate belga"
+            />
+            <h3>Brigadeiro Gourmet</h3>
+            <p>Delicioso brigadeiro feito com chocolate belga.</p>
+            <span class="preco">R$ 3,50</span>
+            <button
+              id="comprar-brigadeiro"
+              class="botao-personalizado"
+              onclick="confirmarCompra()"
+            >
+              Comprar
+            </button>
+          </div>
 
-        <div class="produto">
-          <img src="./img/bolo.jpg" alt="Bolo de Morango" />
-          <h3>Bolo de Morango</h3>
-          <p>Bolo recheado com morangos frescos e chantilly.</p>
-          <span class="preco">R$ 45,00</span>
-        </div>
+          <div class="produto">
+            <img src="./img/bolo.jpg" alt="Bolo de Morango com chantilly" />
+            <h3>Bolo de Morango</h3>
+            <p>Bolo recheado com morangos frescos e chantilly.</p>
+            <span class="preco">R$ 45,00</span>
+            <button
+              id="comprar-bolo"
+              class="botao-personalizado"
+              onclick="confirmarCompra()"
+            >
+              Comprar
+            </button>
+          </div>
 
-        <div class="produto">
-          <img src="./img/vegan.jpg" alt="Doce Vegano" />
-          <h3>Doce Vegano</h3>
-          <p>Feito sem ingredientes de origem animal, super saboroso!</p>
-          <span class="preco">R$ 6,00</span>
-        </div>
+          <div class="produto">
+            <img
+              src="./img/vegan.jpg"
+              alt="Doce vegano sem ingredientes de origem animal"
+            />
+            <h3>Doce Vegano</h3>
+            <p>Feito sem ingredientes de origem animal, super saboroso!</p>
+            <span class="preco">R$ 6,00</span>
+            <button
+              id="comprar-vegan"
+              class="botao-personalizado"
+              onclick="confirmarCompra()"
+            >
+              Comprar
+            </button>
+          </div>
 
-        <div class="produto">
-          <img src="./img/personalizado.jpg" alt="Caixa Personalizada" />
-          <h3>Caixa Personalizada</h3>
-          <p>Monte sua própria caixa com os doces que preferir.</p>
-          <span class="preco">A partir de R$ 30,00</span>
+          <div class="produto">
+            <img
+              src="./img/personalizado.jpg"
+              alt="Caixa personalizada com doces variados"
+            />
+            <h3>Caixa Personalizada</h3>
+            <p>Monte sua própria caixa com os doces que preferir.</p>
+            <span class="preco">A partir de R$ 30,00</span>
+            <button
+              id="comprar-caixa"
+              class="botao-personalizado"
+              onclick="confirmarCompra()"
+            >
+              Comprar
+            </button>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
 
-    <footer class="footer">
+    <footer class="footer" id="contato">
       <div class="footer-logo">
         <img src="./img/logo.png" alt="Logo Doces JAE" />
       </div>
