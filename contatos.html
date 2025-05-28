@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>
+      Sera uma alegria te atender<br />Voce pode nos encontrar no
+      instagrem,whatsapp ou preenchendo o formulario abaixo
+    </p>
+    <form id="frmContato">
+      <fieldset>
+        <legend>Dados pessoais</legend>
+        <label>Nome e sobrenome</label><input required type="text" id="nome" />
+        <label>Email</label><input required type="email" id="email" />
+        <label>Telefone</label><input required type="number" id="telefone" />
+        <label>mensagem</label>
+        <textarea name="mensagem" id="mensagem" cols="45" rows="5">
+Digite sua mensagem</textarea
+        ><label>Como prefere o seu contato?</label>
+        <input type="radio" name="contato" />Email
+        <input type="radio" name="contato" />Whatsapp
+        <input type="radio" name="contato" />Telefone
+
+        <label>Qual o motivo do seu contato?</label>
+        <select name="motivo" id="motivo">
+          <option value="default">Selecione</option>
+          <option value="duvida">Duvida</option>
+          <option value="sugestao">Sugestao</option>
+          <option value="elogio">Elogio</option>
+          <option value="reclamacao">Reclamacao</option>
+        </select>
+      </fieldset>
+      <label>
+        <input type="checkbox" name="noticia" id="noticia" />Deseja receber
+        novidades por email</label
+      >
+      <input type="submit" name="enviar" id="enviar" />
+    </form>
+  </body>
+</html>

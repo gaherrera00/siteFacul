@@ -11,7 +11,17 @@
     />
     <link rel="stylesheet" href="./style.css" />
     <script>
-      function confirmarCompra() {
+      function abrirDetalhes(nome, imagem, descricao) {
+        const url = `popProdutos.html?nome=${encodeURIComponent(
+          nome
+        )}&imagem=${encodeURIComponent(imagem)}&descricao=${encodeURIComponent(
+          descricao
+        )}`;
+        window.open(url, "_blank", "width=800,height=700");
+      }
+
+      // Insere a data atual no topo da página
+      document.addEventListener("DOMContentLoaded", function () {
         const diasSemana = [
           "domingo",
           "segunda-feira",
@@ -42,22 +52,24 @@
         const mes = meses[hoje.getMonth()];
         const ano = hoje.getFullYear();
 
-        alert(
-          `sua compra foi realizada no dia ${diaSemana}, ${dia} de ${mes} de ${ano}`
-        );
-      }
+        const dataFormatada = `${diaSemana}, ${dia} de ${mes} de ${ano}`;
+        document.getElementById("data-atual").textContent = dataFormatada;
+      });
     </script>
   </head>
   <body>
     <header>
+      <div class="data-topo">
+        <p id="data-atual" style="margin: 10px 0; font-weight: bold"></p>
+      </div>
       <div class="logo">
         <img src="./img/logo.png" alt="Logo da Doces JAE" />
       </div>
       <nav>
         <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#produtos">Produtos</a></li>
-          <li><a href="#contato">Contato</a></li>
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="./produtos.html">Produtos</a></li>
+          <li><a href="./contatos.html">Contato</a></li>
         </ul>
       </nav>
     </header>
@@ -65,70 +77,57 @@
     <main>
       <section id="produtos" class="produtos">
         <h2>Nossos Produtos</h2>
-        <div class="grid-produtos">
-          <div class="produto">
-            <img
-              src="./img/brigadeiro.jpg"
-              alt="Brigadeiro Gourmet com chocolate belga"
-            />
-            <h3>Brigadeiro Gourmet</h3>
-            <p>Delicioso brigadeiro feito com chocolate belga.</p>
-            <span class="preco">R$ 3,50</span>
-            <button
-              id="comprar-brigadeiro"
-              class="botao-personalizado"
-              onclick="confirmarCompra()"
-            >
-              Comprar
-            </button>
+        <div class="produtos-grid">
+          <div
+            class="produto"
+            onclick="abrirDetalhes('Brigadeiro Gourmet','./img/brigadeiro.jpg','Delicioso brigadeiro feito com chocolate belga.')"
+          >
+            <img src="img/brigadeiro.jpg" alt="Brigadeiro Gourmet" />
+            <div class="produto-info">
+              <h3>Brigadeiro Gourmet</h3>
+              <p>Delicioso brigadeiro feito com chocolate belga.</p>
+              <span class="preco">R$ 3,50</span>
+              <button class="botao-personalizado">Comprar</button>
+            </div>
           </div>
 
-          <div class="produto">
-            <img src="./img/bolo.jpg" alt="Bolo de Morango com chantilly" />
-            <h3>Bolo de Morango</h3>
-            <p>Bolo recheado com morangos frescos e chantilly.</p>
-            <span class="preco">R$ 45,00</span>
-            <button
-              id="comprar-bolo"
-              class="botao-personalizado"
-              onclick="confirmarCompra()"
-            >
-              Comprar
-            </button>
+          <div
+            class="produto"
+            onclick="abrirDetalhes('Bolo de Morango','./img/bolo.jpg','Bolo recheado com morangos frescos e chantilly.')"
+          >
+            <img src="./img/bolo.jpg" alt="Bolo de Morango" />
+            <div class="produto-info">
+              <h3>Bolo de Morango</h3>
+              <p>Bolo recheado com morangos frescos e chantilly.</p>
+              <span class="preco">R$ 45,00</span>
+              <button class="botao-personalizado">Comprar</button>
+            </div>
           </div>
 
-          <div class="produto">
-            <img
-              src="./img/vegan.jpg"
-              alt="Doce vegano sem ingredientes de origem animal"
-            />
-            <h3>Doce Vegano</h3>
-            <p>Feito sem ingredientes de origem animal, super saboroso!</p>
-            <span class="preco">R$ 6,00</span>
-            <button
-              id="comprar-vegan"
-              class="botao-personalizado"
-              onclick="confirmarCompra()"
-            >
-              Comprar
-            </button>
+          <div
+            class="produto"
+            onclick="abrirDetalhes('Doce Vegano','./img/vegan.jpg','Feito sem ingredientes de origem animal, super saboroso!')"
+          >
+            <img src="./img/vegan.jpg" alt="Doce Vegano" />
+            <div class="produto-info">
+              <h3>Doce Vegano</h3>
+              <p>Feito sem ingredientes de origem animal, super saboroso!</p>
+              <span class="preco">R$ 6,00</span>
+              <button class="botao-personalizado">Comprar</button>
+            </div>
           </div>
 
-          <div class="produto">
-            <img
-              src="./img/personalizado.jpg"
-              alt="Caixa personalizada com doces variados"
-            />
-            <h3>Caixa Personalizada</h3>
-            <p>Monte sua própria caixa com os doces que preferir.</p>
-            <span class="preco">A partir de R$ 30,00</span>
-            <button
-              id="comprar-caixa"
-              class="botao-personalizado"
-              onclick="confirmarCompra()"
-            >
-              Comprar
-            </button>
+          <div
+            class="produto"
+            onclick="abrirDetalhes('Caixa Personalizada','./img/personalizado.jpg','Monte sua própria caixa com os doces que preferir.')"
+          >
+            <img src="./img/personalizado.jpg" alt="Caixa Personalizada" />
+            <div class="produto-info">
+              <h3>Caixa Personalizada</h3>
+              <p>Monte sua própria caixa com os doces que preferir.</p>
+              <span class="preco">A partir de R$ 30,00</span>
+              <button class="botao-personalizado">Comprar</button>
+            </div>
           </div>
         </div>
       </section>

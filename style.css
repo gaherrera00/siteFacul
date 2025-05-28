@@ -7,7 +7,7 @@
 }
 
 body {
-  font-family: Roboto;
+  font-family: Roboto, sans-serif;
   margin: 0;
   padding: 0;
   background-color: var(--cor-fundo);
@@ -166,6 +166,14 @@ h2 {
   color: var(--cor-texto);
 }
 
+.produtos-grid {
+  display: flex;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 100px;
+  margin-left: 10%;
+  margin-bottom: 100px;
+}
+
 .grid-produtos {
   display: flex;
   flex-wrap: wrap;
@@ -229,6 +237,40 @@ h2 {
 
 .botao-personalizado:hover {
   background-color: var(--cor-destaque);
+}
+
+.produto-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: var(--cor-fundo);
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.produto-titulo {
+  font-size: 32px;
+  color: var(--cor-texto);
+  margin-bottom: 20px;
+  font-family: Roboto, sans-serif;
+}
+
+.produto-imagem {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.produto-descricao {
+  font-size: 18px;
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  font-family: Roboto, sans-serif;
 }
 
 @media (max-width: 768px) {
@@ -350,6 +392,23 @@ h2 {
 
   .botao-personalizado {
     width: 80%;
+    font-size: 16px;
+  }
+
+  .produto-container {
+    margin: 20px;
+    padding: 15px;
+  }
+
+  .produto-titulo {
+    font-size: 24px;
+  }
+
+  .produto-imagem {
+    max-width: 100%;
+  }
+
+  .produto-descricao {
     font-size: 16px;
   }
 }
