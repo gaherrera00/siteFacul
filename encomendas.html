@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Produto - Doces JAE</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="./img/aba.jpeg" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <header>
@@ -20,5 +21,108 @@
         </ul>
       </nav>
     </header>
+    <h2>Encomendas</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Produto</th>
+          <th>Quantidade</th>
+          <th>Valor unitario</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody class="tabelaClientes">
+        <tr class="cliente">
+          <td class="nome">Carolina</td>
+          <td class="produtoCliente">Pirulitos coloridos (10 unidades)</td>
+          <td class="qtde">2</td>
+          <td class="unitario">50</td>
+          <td class="total"></td>
+        </tr>
+        <tr class="cliente">
+          <td class="nome">Margarete</td>
+          <td class="produtoCliente">Combo Brigadeiros (6 unidades)</td>
+          <td class="qtde">2</td>
+          <td class="unitario">30</td>
+          <td class="total"></td>
+        </tr>
+        <tr class="cliente">
+          <td class="nome">Daniele</td>
+          <td class="produtoCliente">Fatia de bolo (Creme)</td>
+          <td class="qtde">1</td>
+          <td class="unitario">25</td>
+          <td class="total"></td>
+        </tr>
+        <tr class="cliente">
+          <td class="nome">Daniele</td>
+          <td class="produtoCliente">Fatia de bolo (Chocolate)</td>
+          <td class="qtde">0</td>
+          <td class="unitario">25</td>
+          <td class="total"></td>
+        </tr>
+      </tbody>
+    </table>
+    <footer class="footer">
+      <div class="footer-logo">
+        <img src="./img/logo.png" alt="Logo Doces JAE" />
+      </div>
+      <div class="footer-links">
+        <p>© 2025 Doces JAE - Todos os direitos reservados</p>
+      </div>
+    </footer>
+    <script>
+      function formatarValor(valor) {
+        return valor.toLocaleString("pt-br", {
+          style: "currency",
+          currency: "BRL",
+        });
+      }
+
+      // 2.1 -> texto vermelho,linha padrao
+      function Erro1(linha) {
+        linha.querySelector(".qtde").textContent = "QTDE INVÁLIDA";
+        linha.querySelector(".qtde").style.color = "red";
+
+        linha.querySelector(".total").textContent = "XXX";
+        linha.querySelector(".total").style.color = "red";
+      }
+
+      // 2.2 -> texto branco,linha vermelha
+      function Erro2(linha) {
+        linha.querySelector(".qtde").textContent = "QTDE INVÁLIDA";
+        linha.querySelector(".qtde").style.backgroundColor = "red";
+        linha.querySelector(".qtde").style.color = "white";
+
+        linha.querySelector(".total").textContent = "XXX";
+        linha.querySelector(".total").style.backgroundColor = "red";
+        linha.querySelector(".total").style.color = "white";
+      }
+
+      function calcularTotal() {
+        let clientes = document.querySelectorAll(".cliente");
+        let total = 0;
+
+        clientes.forEach((linha) => {
+          let quantidade = linha.querySelector(".qtde").textContent;
+          let valor = linha.querySelector(".unitario").textContent;
+
+          if (
+            quantidade > 0 &&
+            !isNaN(quantidade) &&
+            valor > 0 &&
+            !isNaN(valor)
+          ) {
+            let total = quantidade * valor;
+            linha.querySelector(".unitario").textContent = formatarValor(valor);
+            linha.querySelector(".total").textContent = formatarValor(total);
+          } else {
+            // entrada estilizacao do erro (2.1 ou 2.2)
+            Erro1(linha);
+          }
+        });
+      }
+      calcularTotal();
+    </script>
   </body>
 </html>

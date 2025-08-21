@@ -361,6 +361,26 @@ h2 {
   background-color: var(--cor-destaque);
 }
 
+table {
+  width: 100%;
+  margin-bottom: 2%;
+  table-layout: fixed;
+}
+th {
+  font-weight: bolg;
+  background-color: var(--cor-secundaria);
+}
+td,
+th {
+  padding: 10px;
+  margin: 0;
+  border: 1px solid var(--cor-destaque);
+  text-align: center;
+}
+td{
+  background-color: var(--cor-destaque);
+}
+
 @media (max-width: 768px) {
   header {
     flex-direction: column;
