@@ -63,6 +63,51 @@
         </tr>
       </tbody>
     </table>
+
+    <form class="form-contato">
+      <fieldset>
+        <legend>Adicionar Encomenda</legend>
+
+        <label class="nome">Nome:</label>
+        <input type="text" name="nome" required />
+
+        <label for="quantidade">Quantidade:</label>
+        <input
+          type="number"
+          id="quantidade"
+          name="quantidade"
+          min="1"
+          required
+        />
+
+        <label class="telefone">Valor unitario</label>
+        <input type="number" name="unitario" required />
+
+        <label class="selectProdutos">Produto:</label>
+        <select name="produto" required>
+          <option value="" disabled selected>Selecione um produto</option>
+          <option value="Brigadeiro Gourmet">Brigadeiro Gourmet</option>
+          <option value="Bolo de Morango">Bolo de Morango</option>
+          <option value="Doce Vegano">Doce Vegano</option>
+          <option value="Caixa Personalizada">Caixa Personalizada</option>
+          <option value="Pudim de Leite">Pudim de Leite</option>
+          <option value="Trufa de Maracujá">Trufa de Maracujá</option>
+          <option value="Mini Cheesecake">Mini Cheesecake</option>
+          <option value="Cookies com Gotas de Chocolate">
+            Cookies com Gotas de Chocolate
+          </option>
+          <option value="Bombom de Uva">Bombom de Uva</option>
+          <option value="Doce de Leite com Nozes">
+            Doce de Leite com Nozes
+          </option>
+          <option value="Rocambole de Chocolate">Rocambole de Chocolate</option>
+          <option value="Torta Banoffee">Torta Banoffee</option>
+        </select>
+
+        <input type="submit" value="Adicionar" />
+      </fieldset>
+    </form>
+
     <footer class="footer">
       <div class="footer-logo">
         <img src="./img/logo.png" alt="Logo Doces JAE" />
@@ -82,28 +127,28 @@
       // 2.1 -> texto vermelho,linha padrao
       function Erro1(linha) {
         linha.querySelector(".qtde").textContent = "QTDE INVÁLIDA";
-        linha.querySelector(".qtde").style.color = "red";
+        linha.querySelector(".qtde").classList.add("Erro1");
 
         linha.querySelector(".total").textContent = "XXX";
-        linha.querySelector(".total").style.color = "red";
+        linha.querySelector(".total").classList.add("Erro1");
 
         linha.querySelector(".unitario").textContent = "XXX";
-        linha.querySelector(".unitario").style.color = "red";
+        linha.querySelector(".unitario").classList.add("Erro1");
       }
 
       // 2.2 -> texto branco,linha vermelha
       function Erro2(linha) {
         linha.querySelector(".qtde").textContent = "QTDE INVÁLIDA";
-        linha.querySelector(".qtde").style.backgroundColor = "red";
-        linha.querySelector(".qtde").style.color = "white";
+        linha.querySelector(".qtde").classList.add("Erro2");
+        linha.querySelector(".qtde").classList.add("Erro2");
 
         linha.querySelector(".total").textContent = "XXX";
-        linha.querySelector(".total").style.backgroundColor = "red";
-        linha.querySelector(".total").style.color = "white";
+        linha.querySelector(".total").classList.add("Erro2");
+        linha.querySelector(".total").classList.add("Erro2");
 
         linha.querySelector(".unitario").textContent = "XXX";
-        linha.querySelector(".unitario").style.backgroundColor = "red";
-        linha.querySelector(".unitario").style.color = "white";
+        linha.querySelector(".unitario").classList.add("Erro2");
+        linha.querySelector(".unitario").classList.add("Erro2");
       }
 
       function calcularTotal() {

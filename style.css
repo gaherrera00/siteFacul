@@ -377,8 +377,17 @@ th {
   border: 1px solid var(--cor-destaque);
   text-align: center;
 }
-td{
+td {
   background-color: var(--cor-destaque);
+}
+
+.Erro1 {
+  color: red;
+}
+
+.Erro2 {
+  background-color: red;
+  color: white;
 }
 
 @media (max-width: 768px) {
