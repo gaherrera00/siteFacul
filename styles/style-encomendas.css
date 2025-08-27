@@ -1,0 +1,113 @@
+/* Orders Page Specific Styles */
+table {
+  width: 100%;
+  margin-bottom: 2%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+th {
+  font-weight: bold;
+  background-color: var(--cor-secundaria);
+  padding: 10px;
+  margin: 0;
+  border: 1px solid var(--cor-destaque);
+  text-align: center;
+}
+
+td {
+  padding: 10px;
+  margin: 0;
+  border: 1px solid var(--cor-destaque);
+  text-align: center;
+  background-color: var(--cor-destaque);
+}
+
+.Erro1 {
+  color: red;
+}
+
+.Erro2 {
+  background-color: red;
+  color: white;
+}
+
+.form-contato {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: var(--cor-fundo);
+  border-radius: 10px;
+  font-family: Roboto, sans-serif;
+  color: var(--cor-texto);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-contato fieldset {
+  border: 1px solid var(--cor-secundaria);
+  border-radius: 8px;
+  padding: 15px 20px;
+  margin-bottom: 20px;
+}
+
+.form-contato legend {
+  font-weight: bold;
+  color: var(--cor-principal);
+  padding: 0 5px;
+  font-size: 18px;
+}
+
+.form-contato label {
+  display: block;
+  margin-top: 12px;
+  font-size: 14px;
+}
+
+.form-contato input[type="text"],
+.form-contato input[type="number"],
+.form-contato select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid var(--cor-secundaria);
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+.form-contato input[type="submit"] {
+  background-color: var(--cor-principal);
+  color: var(--cor-texto);
+  border: none;
+  border-radius: 8px;
+  padding: 12px 20px;
+  margin-top: 20px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+.form-contato input[type="submit"]:hover {
+  background-color: var(--cor-destaque);
+}
+
+/* Responsive for Orders */
+@media (max-width: 768px) {
+  table {
+    font-size: 12px;
+  }
+
+  th,
+  td {
+    padding: 5px;
+  }
+
+  .form-contato {
+    width: 90%;
+    margin: 20px auto;
+    padding: 15px;
+  }
+}
