@@ -377,8 +377,31 @@ th {
   border: 1px solid var(--cor-destaque);
   text-align: center;
 }
-td{
+td {
   background-color: var(--cor-destaque);
+}
+.buscar input[type="search"] {
+  width: auto;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid var(--cor-secundaria);
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+.buscar h4 {
+  display: block;
+  margin-top: 12px;
+}
+
+.fadeOut {
+  opacity: 0;
+  transition: 1.5s;
+}
+
+.invisivel {
+  opacity: 0;
 }
 
 @media (max-width: 768px) {

@@ -21,7 +21,18 @@
         </ul>
       </nav>
     </header>
+
     <h2>Encomendas</h2>
+    <div class="buscar">
+      <h4>Buscar clientes:</h4>
+      <input
+        type="search"
+        id="buscar"
+        name="buscar"
+        placeholder="Nome do cliente"
+      />
+    </div>
+
     <table>
       <thead>
         <tr>
@@ -63,6 +74,62 @@
         </tr>
       </tbody>
     </table>
+
+    <section class="form-contato">
+      <form action="#" method="POST">
+        <fieldset>
+          <legend>Fazer Pedido</legend>
+
+          <label for="nome">Nome do Cliente:</label>
+          <input type="text" id="nome" name="nome" required />
+
+          <label for="produto">Produto:</label>
+          <select id="produto" name="produto" required>
+            <option value="">Selecione um produto</option>
+            <option value="Brigadeiro Gourmet">Brigadeiro Gourmet</option>
+            <option value="Bolo de Morango">Bolo de Morango</option>
+            <option value="Doce Vegano">Doce Vegano</option>
+            <option value="Caixa Personalizada">Caixa Personalizada</option>
+            <option value="Pudim de Leite">Pudim de Leite</option>
+            <option value="Trufa de Maracujá">Trufa de Maracujá</option>
+            <option value="Mini Cheesecake">Mini Cheesecake</option>
+            <option value="Cookies com Gotas de Chocolate">
+              Cookies com Gotas de Chocolate
+            </option>
+            <option value="Bombom de Uva">Bombom de Uva</option>
+            <option value="Doce de Leite com Nozes">
+              Doce de Leite com Nozes
+            </option>
+            <option value="Rocambole de Chocolate">
+              Rocambole de Chocolate
+            </option>
+            <option value="Torta Banoffee">Torta Banoffee</option>
+          </select>
+
+          <label for="quantidade">Quantidade:</label>
+          <input
+            type="number"
+            id="quantidade"
+            name="quantidade"
+            min="1"
+            required
+          />
+
+          <label for="valor">Valor Unitário (R$):</label>
+          <input
+            type="number"
+            id="valor"
+            name="valor"
+            min="0.01"
+            step="0.01"
+            required
+          />
+
+          <input type="submit" value="Enviar Pedido" />
+        </fieldset>
+      </form>
+    </section>
+
     <footer class="footer">
       <div class="footer-logo">
         <img src="./img/logo.png" alt="Logo Doces JAE" />
@@ -71,7 +138,9 @@
         <p>© 2025 Doces JAE - Todos os direitos reservados</p>
       </div>
     </footer>
+
     <script>
+      // Função para formatar valor em real
       function formatarValor(valor) {
         return valor.toLocaleString("pt-br", {
           style: "currency",
@@ -79,56 +148,84 @@
         });
       }
 
-      // 2.1 -> texto vermelho,linha padrao
-      function Erro1(linha) {
-        linha.querySelector(".qtde").textContent = "QTDE INVÁLIDA";
-        linha.querySelector(".qtde").style.color = "red";
+      // Adiciona item à tabela
+      function addItem() {
+        const nome = document.getElementById("nome").value.trim();
+        const produto = document.getElementById("produto").value;
+        const quantidade = Number(document.getElementById("quantidade").value);
+        const valorUnitario = Number(document.getElementById("valor").value);
 
-        linha.querySelector(".total").textContent = "XXX";
-        linha.querySelector(".total").style.color = "red";
+        const tbody = document.querySelector(".tabelaClientes");
 
-        linha.querySelector(".unitario").textContent = "XXX";
-        linha.querySelector(".unitario").style.color = "red";
+        const tr = document.createElement("tr");
+        tr.classList.add("cliente");
+
+        tr.innerHTML = `
+        <td class="nome">${nome}</td>
+        <td class="produtoCliente">${produto}</td>
+        <td class="qtde">${quantidade}</td>
+        <td class="unitario">${formatarValor(valorUnitario)}</td>
+        <td class="total">${formatarValor(quantidade * valorUnitario)}</td>
+      `;
+
+        tbody.appendChild(tr);
+
+        document.querySelector("form").reset();
       }
 
-      // 2.2 -> texto branco,linha vermelha
-      function Erro2(linha) {
-        linha.querySelector(".qtde").textContent = "QTDE INVÁLIDA";
-        linha.querySelector(".qtde").style.backgroundColor = "red";
-        linha.querySelector(".qtde").style.color = "white";
+      // Função de pesquisa de cliente
+      document.querySelector("#buscar").addEventListener("input", function () {
+        const linhas = document.querySelectorAll(".cliente");
 
-        linha.querySelector(".total").textContent = "XXX";
-        linha.querySelector(".total").style.backgroundColor = "red";
-        linha.querySelector(".total").style.color = "white";
+        linhas.forEach((linha) => {
+          const nome = linha.querySelector(".nome").textContent.toLowerCase();
+          if (nome.includes(this.value.toLowerCase())) {
+            linha.classList.remove("invisivel");
+          } else {
+            linha.classList.add("invisivel");
+          }
+        });
+      });
 
-        linha.querySelector(".unitario").textContent = "XXX";
-        linha.querySelector(".unitario").style.backgroundColor = "red";
-        linha.querySelector(".unitario").style.color = "white";
-      }
+      // Remover item da tabela com duplo clique
+      document
+        .querySelector(".tabelaClientes")
+        .addEventListener("dblclick", function (event) {
+          const linha = event.target.closest("tr");
+          if (confirm("Tem certeza que deseja excluir essa linha?")) {
+            linha.remove();
+          }
+        });
 
+      // Evento para envio do formulário
+      document
+        .querySelector("form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          addItem();
+        });
+
+      // Calcular total ao carregar
       function calcularTotal() {
-        let clientes = document.querySelectorAll(".cliente");
-        let total = 0;
+        const linhas = document.querySelectorAll(".cliente");
 
-        clientes.forEach((linha) => {
-          let quantidade = linha.querySelector(".qtde").textContent;
+        linhas.forEach((linha) => {
+          let quantidade = Number(linha.querySelector(".qtde").textContent);
           let valor = linha.querySelector(".unitario").textContent;
 
-          if (
-            quantidade > 0 &&
-            !isNaN(quantidade) &&
-            valor > 0 &&
-            !isNaN(valor)
-          ) {
-            let total = quantidade * valor;
+          // Remover formatação
+          valor = Number(valor.replace(/[^\d,]/g, "").replace(",", "."));
+
+          if (quantidade > 0 && !isNaN(valor)) {
+            const total = quantidade * valor;
             linha.querySelector(".unitario").textContent = formatarValor(valor);
             linha.querySelector(".total").textContent = formatarValor(total);
           } else {
-            // entrada estilizacao do erro (2.1 ou 2.2)
-            Erro1(linha);
+            linha.querySelector(".total").textContent = "XXX";
           }
         });
       }
+
       calcularTotal();
     </script>
   </body>

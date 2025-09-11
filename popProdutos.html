@@ -13,19 +13,7 @@
         <img class="produto-imagem" src="" alt="Imagem do produto" />
         <p class="produto-descricao">DESCRIÇÃO</p>
       </div>
-
-      <script>
-        function getParametro(dado) {
-          const urlParams = new URLSearchParams(window.location.search);
-          return urlParams.get(dado);
-        }
-
-        document.querySelector(".produto-titulo").textContent =
-          getParametro("nome");
-        document.querySelector(".produto-imagem").src = getParametro("imagem");
-        document.querySelector(".produto-descricao").textContent =
-          getParametro("descricao");
-      </script>
+      <script src="./scripts/popUp.js"></script>
     </main>
   </body>
 </html>
