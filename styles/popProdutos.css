@@ -1,0 +1,75 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  background-color: #f7f6f2; /* Fundo principal do site */
+  color: #1c1c1c; /* Texto principal */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Container principal do produto */
+.produto-container {
+  background-color: #ffffff; /* Mesma cor clara do fundo secundário */
+  border-radius: 25px; /* Similar ao que você usa nas imagens */
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  max-width: 700px;
+  width: 100%;
+  padding: 25px;
+  text-align: center;
+}
+
+/* Título do produto */
+.produto-titulo {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #11703b; /* Verde escuro institucional */
+  font-weight: bold;
+}
+
+/* Imagem do produto */
+.produto-imagem {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 25px;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+}
+
+.produto-imagem:hover {
+  transform: scale(1.05);
+}
+
+/* Descrição do produto */
+.produto-descricao {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #444444; /* Texto secundário */
+  margin-bottom: 20px;
+}
+
+/* Botão de fechar */
+.fechar-popup {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 25px;
+  background-color: #d9a700; /* Amarelo-ouro de destaque */
+  color: #ffffff;
+  font-weight: bold;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.fechar-popup:hover {
+  background-color: #11703b;
+}
