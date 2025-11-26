@@ -1,0 +1,25 @@
+.footer {
+  background-color: var(--cor-principal, #ffccea);
+  color: var(--cor-texto, #000);
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.footer-logo img {
+  height: 80px;
+}
+
+.footer-links p,
+.footer a {
+  color: var(--cor-texto, #000);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
