@@ -1,17 +1,29 @@
 # Site Faculdade 🌐
 
-Projeto front-end estático criado para treinar HTML, CSS e JavaScript.  
-Inclui estrutura responsiva e navegação entre seções.
+Projeto front-end baseado no layout do `siteFacul` com funcionalidades do repositório base `SilFazendoArte_25TA`.
 
-## Funcionalidades
-- Layout limpo e responsivo
-- Páginas de apresentação, cursos e contato
-- Uso de variáveis CSS e organização modular
+- **Home em React:** somente a página inicial foi portada para React (JSX simples, sem router ou estado global) usando o mesmo HTML/CSS do layout original.
+- **Demais páginas em HTML/JS puro:** Produtos, Contato, Encomendas e o pop-up de produto permanecem em `public/` com os scripts vanilla originais.
+- **Estilos e mídia:** CSS e imagens continuam em `public/styles` e `public/img`, reaproveitando o visual existente.
 
-## Tecnologias
-- HTML
-- CSS
-- JavaScript
+## Como rodar
+1. Instale as dependências (apenas React/Vite):
+   ```bash
+   npm install
+   ```
+2. Suba o ambiente de desenvolvimento (serve a home React e os HTMLs de `public/`):
+   ```bash
+   npm run dev
+   ```
+3. Para gerar os arquivos estáticos (home em React + páginas HTML copiadas de `public/`):
+   ```bash
+   npm run build
+   ```
 
-## Objetivo
-Demonstrar base sólida em front-end puro e boas práticas de estilização.
+## Estrutura
+- `index.html`: ponto de entrada do Vite para a home em React.
+- `src/App.jsx` e `src/main.jsx`: componentes mínimos para renderizar a home.
+- `public/`: páginas HTML originais (`produtos.html`, `contatos.html`, `encomendas.html`, `popProdutos.html`), scripts vanilla e assets.
+
+## Publicar no GitHub Pages
+O workflow `.github/workflows/deploy.yml` já publica `dist` no GitHub Pages. Ajuste `base` em `vite.config.js` se usar um nome de repositório diferente de `siteFacul`.
