@@ -1,0 +1,103 @@
+/* Estilos adicionais para as novas seções herdadas do SilFazendoArte */
+
+.carrossel {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-height: 480px;
+  background: linear-gradient(var(--cor-principal), #fff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 24px 0;
+}
+
+.carrossel-slides {
+  display: flex;
+  transition: transform 0.4s ease-in-out;
+  width: 90%;
+}
+
+.carrossel-slide {
+  min-width: 100%;
+  display: none;
+  justify-content: center;
+}
+
+.carrossel-slide.ativo {
+  display: flex;
+}
+
+.carrossel-slide img {
+  width: 100%;
+  max-height: 380px;
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.carrossel-btn {
+  background-color: rgba(0, 0, 0, 0.25);
+  border: none;
+  color: #fff;
+  font-size: 28px;
+  padding: 14px 18px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.carrossel-btn:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+  transform: scale(1.05);
+}
+
+.sobre-nos-resumo,
+.produtos-resumo {
+  width: 90%;
+  margin: 40px auto;
+  padding: 24px;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.resumo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.resumo-card {
+  background: linear-gradient(135deg, var(--cor-principal), var(--cor-destaque));
+  padding: 16px;
+  border-radius: 14px;
+  color: var(--cor-texto);
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+.resumo-card h4 {
+  margin: 0 0 8px;
+}
+
+.resumo-card ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.resumo-card li {
+  margin-bottom: 6px;
+}
+
+@media (max-width: 768px) {
+  .carrossel {
+    flex-direction: column;
+    max-height: none;
+  }
+
+  .carrossel-btn {
+    padding: 10px 12px;
+  }
+}

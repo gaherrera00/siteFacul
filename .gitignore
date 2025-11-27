@@ -1,0 +1,5 @@
+node_modules/
+dist/
+react-app/node_modules/
+react-app/dist/
+.DS_Store

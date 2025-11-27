@@ -1,0 +1,56 @@
+@import './index.css';
+@import './index-extra.css';
+@import './produtos.css';
+@import './popProdutos.css';
+@import './encomendas.css';
+@import './contato.css';
+
+:root {
+  font-family: 'Roboto', sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  padding: 20px;
+}
+
+.popup-card {
+  background: #ffffff;
+  border-radius: 25px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  max-width: 720px;
+  width: 100%;
+  padding: 24px;
+  text-align: center;
+  position: relative;
+}
+
+.slider {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+body {
+  margin: 0;
+  background-color: #f7f6f2;
+  color: #1c1c1c;
+  display: block;
+}
+
+main {
+  padding: 0 20px 40px;
+}

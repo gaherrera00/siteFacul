@@ -10,8 +10,21 @@
     <main>
       <div class="produto-container">
         <h1 class="produto-titulo">TÍTULO</h1>
-        <img class="produto-imagem" src="" alt="Imagem do produto" />
+        <div class="slider-wrapper">
+          <button
+            class="slider-btn anterior"
+            aria-label="Imagem anterior do produto"
+          >
+            ❮
+          </button>
+          <img class="produto-imagem" src="" alt="Imagem do produto" />
+          <button class="slider-btn proximo" aria-label="Próxima imagem">
+            ❯
+          </button>
+        </div>
+        <p class="produto-indicador"></p>
         <p class="produto-descricao">DESCRIÇÃO</p>
+        <button class="fechar-popup" type="button">Fechar</button>
       </div>
       <script src="./scripts/popProdutos.js"></script>
     </main>

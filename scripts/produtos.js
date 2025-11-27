@@ -1,7 +1,14 @@
-function abrirDetalhes(nome, imagem, descricao) {
+function abrirDetalhes(nome, imagens, descricao) {
+  const listaImagens = Array.isArray(imagens)
+    ? imagens
+    : `${imagens}`
+        .split(",")
+        .map((item) => item.trim())
+        .filter(Boolean);
+
   const url = `popProdutos.html?nome=${encodeURIComponent(
     nome
-  )}&imagem=${encodeURIComponent(imagem)}&descricao=${encodeURIComponent(
+  )}&imagem=${encodeURIComponent(listaImagens.join(","))}&descricao=${encodeURIComponent(
     descricao
   )}`;
   window.open(url, "_blank", "width=800,height=700");
@@ -9,6 +16,8 @@ function abrirDetalhes(nome, imagem, descricao) {
 
 // Insere a data atual no topo da página
 document.addEventListener("DOMContentLoaded", function () {
+  alert("Bem-vindo! Confira os detalhes dos nossos produtos na janela pop-up.");
+
   const diasSemana = [
     "domingo",
     "segunda-feira",
